@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3>Список доходов и расходов</h3>
+        <h4>Доходы</h4>
+            {% for transaction in i %}
+                <ol>
+                    {{ transaction.0 }} {{ transaction.1 }}
+                </ol>
+            {% endfor %}
+        <h4>Расходы</h4>
+            {% for transaction in j %}
+                <ol>
+                    {{ transaction.0 }} {{ transaction.1 }}
+                </ol>
+            {% endfor %}
+    <a href="/">Вернуться к вводу данных</a>
+{% endblock %}

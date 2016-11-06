@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Форма</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+            <h3>{{ field.label }}</h3>
+            <h4>Ошибки</h4>
+            {% for error in field.errors %}
+                {% if forloop.first %}
+                <ul>
+                {% endif %}
+                <li>{{ error }}</li>
+                {% if forloop.first %}
+                </ul>
+                {% endif %}
+            {% empty %}
+                Все введено правильно
+            {% endfor %}
+            <p></p>
+            {{ field }}
+        {% endfor %}
+        <br>
+        <button type="submit">Отправить</button>
+    </form>
+    <p></p>
+    <p></p>
+    <a href="generator/">Генератор</a>
+{% endblock %}
